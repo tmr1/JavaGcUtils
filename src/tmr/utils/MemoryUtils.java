@@ -26,11 +26,16 @@ public class MemoryUtils {
 	/**
 	 * The size of a "blob", the amount of memory to allocate in each iteration
 	 */
-	private static final long BLOB_SIZE = (long) Integer.MAX_VALUE / 2L - 4 * MemoryUtils.MB;
+	private static final long BLOB_SIZE = (long) Integer.MAX_VALUE / 16L;
 	/**
 	 * THe size of the "blob" as an int
 	 */
 	private static final int BLOB_SIZE_AS_INT = (int) MemoryUtils.BLOB_SIZE;
+	
+	/**
+	 * The number of iterations to allocate the memory in {@link #useMemory}
+	 */
+	private static final int NUMBER_OF_ITERATIONS_TO_ALLOCATE_MEMORY = 2;
 	
 	/**
 	 * The new line character in the current system
@@ -68,27 +73,26 @@ public class MemoryUtils {
 	 * <br><br><b>NOTE:</b> This method doesn't always work too well, isn't always needed and can sometimes call the JVM to freeze!
 	 * @param maxPercentOfMemoryToUse the percentage of memory available to the JVM to allocate
 	 */
-	public static void useMemory(final int maxPercentOfMemoryToUse) {
-		final int NUMBER_OF_ITERATIONS = 16;
-		
+	public static void useMemory(final long maxPercentOfMemoryToUse) {
 		List<byte[]> byteList = new LinkedList<byte[]>();
 		
 		try {
-			for(int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
-				final long maxTotalMemory = MemoryUtils.RUNTIME.maxMemory() / 100L * (maxPercentOfMemoryToUse - NUMBER_OF_ITERATIONS + i + 1L);
+			for(int i = 0; i < NUMBER_OF_ITERATIONS_TO_ALLOCATE_MEMORY; i++) {
+				final long maxTotalMemory = MemoryUtils.RUNTIME.maxMemory() / 100L * (maxPercentOfMemoryToUse - NUMBER_OF_ITERATIONS_TO_ALLOCATE_MEMORY + i + 1L);
 				final long numberOfBlobsToAllocate = maxTotalMemory / MemoryUtils.BLOB_SIZE;
-				final long numberOfMoreBytesToAllocate = (maxTotalMemory % MemoryUtils.BLOB_SIZE) - 8L * MemoryUtils.MB;
+				final long numberOfMoreBytesToAllocate = (maxTotalMemory % MemoryUtils.BLOB_SIZE);
 				
-				byteList.clear();
-				byteList = null;
 				byteList = new LinkedList<byte[]>();
 				for(long l = 0; l < numberOfBlobsToAllocate; l++) {
 					byteList.add(new byte[MemoryUtils.BLOB_SIZE_AS_INT]);
 				}
 				byteList.add(new byte[(int) numberOfMoreBytesToAllocate]);
+				
+				byteList.clear();
+				byteList = null;
 			}
 		} finally {
-			System.gc();
+			Runtime.getRuntime().gc();
 		}
 	}
 }
