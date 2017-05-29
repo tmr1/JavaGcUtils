@@ -68,7 +68,7 @@ public class UtilsExamples {
 	 */
 	public static void example2() {
 		System.out.println("Before Memory Allocation " + MemoryUtils.getJvmStats());
-		MemoryUtils.useMemory(85);	//This line is the only difference between example 1 and exmaple 2
+		MemoryUtils.useMemory(80L);	//This line is the only difference between example 1 and exmaple 2
 		System.out.println(MemoryUtils.NEW_LINE + "After Memory Allocation " + MemoryUtils.getJvmStats());
 		
 		for(int i = 0; i < 5; i++) {
@@ -147,7 +147,7 @@ public class UtilsExamples {
 	 */
 	private static void allocateMemory() {
 		List<Object> list = new LinkedList<Object>();
-		final long M = MemoryUtils.MB * 64L;
+		final long M = MemoryUtils.MB * 32L;
 		for(long l = 0; l < M; l++) {
 			final Object o = new Object();
 			list.add(o);
