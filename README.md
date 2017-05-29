@@ -7,52 +7,120 @@
  <br><br>This code will probably run on most platforms (Windows, Linux etc.) with OpenJDK and Oracle's JDK versions 8 & 9. However since this program is based on a specific object that the JVM needs to run the GC it might not work on all implementations since they might implement the GC differently or in future version which might change this. This code would probably even run on OpenJDK or Oracle's JDK versions 5-7 if you get rid of the use of Functional Interfaces. 
  <br><br>Using this program can easily cause a JVM to crash - or at least stop running!
  <br><br><b>Note:</b> New objects are allocated to the Eden part of the heap, so even if you set your heap to be 8 gigabytes you can only use the Eden part which is by default considerbly smaller
-<br><br><br>Example: <br>
-src>java -Xms8g -Xmx8g example.tmr.utils.UtilsExamples 2
-<br>Before Memory Allocation -JVM Status-
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Memory: 7851 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used Memory: 81 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free Memory: 7769 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Memory: 7851 MB
+<br><br><br>Examples: <br>
+<br>java&nbsp;-Xms8g&nbsp;-Xmx8g&nbsp;example.tmr.utils.UtilsExamples&nbsp;1
+<br>-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;81&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;7769&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7851&nbsp;MB
 <br>
-<br>After Memory Allocation -JVM Status-
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Memory: 8191 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used Memory: 6994 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free Memory: 1196 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Memory: 8191 MB
+<br>1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;715&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;384&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;364&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;3849&nbsp;milliseconds
 <br>
-<br>1)      -----
-<br>No GC took 916 milliseconds
-<br>No GC took 763 milliseconds
-<br>With GC took 758 milliseconds
-<br>With GC took 1506 milliseconds
+<br>2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;434&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;362&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;369&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;3751&nbsp;milliseconds
 <br>
-<br>2)      -----
-<br>No GC took 787 milliseconds
-<br>No GC took 728 milliseconds
-<br>With GC took 729 milliseconds
-<br>With GC took 999 milliseconds
+<br>3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;477&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;415&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;372&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;3679&nbsp;milliseconds
 <br>
-<br>3)      -----
-<br>No GC took 745 milliseconds
-<br>No GC took 768 milliseconds
-<br>With GC took 755 milliseconds
-<br>With GC took 937 milliseconds
+<br>4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;369&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;375&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;381&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;3624&nbsp;milliseconds
 <br>
-<br>4)      -----
-<br>No GC took 723 milliseconds
-<br>No GC took 725 milliseconds
-<br>With GC took 727 milliseconds
-<br>With GC took 967 milliseconds
+<br>5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;391&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;363&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;387&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;3593&nbsp;milliseconds
 <br>
-<br>5)      -----
-<br>No GC took 732 milliseconds
-<br>No GC took 731 milliseconds
-<br>With GC took 731 milliseconds
-<br>With GC took 933 milliseconds
+<br>-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;1294&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;6556&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7851&nbsp;MB
 <br>
-<br>-JVM Status-
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Memory: 8116 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used Memory: 2566 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free Memory: 5549 MB
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Memory: 8116 MB
+<br>
+<br>
+<br>java&nbsp;-Xms8g&nbsp;-Xmx8g&nbsp;example.tmr.utils.UtilsExamples&nbsp;2
+<br>Before&nbsp;Memory&nbsp;Allocation&nbsp;-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;81&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;7769&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>
+<br>After&nbsp;Memory&nbsp;Allocation&nbsp;-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;37&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;7813&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>
+<br>1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;554&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;394&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;467&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;3840&nbsp;milliseconds
+<br>
+<br>2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;502&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;497&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;374&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;1803&nbsp;milliseconds
+<br>
+<br>3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;422&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;489&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;380&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;2402&nbsp;milliseconds
+<br>
+<br>4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;410&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;394&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;377&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;2161&nbsp;milliseconds
+<br>
+<br>5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----
+<br>No&nbsp;GC&nbsp;took&nbsp;399&nbsp;milliseconds
+<br>No&nbsp;GC&nbsp;took&nbsp;366&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;374&nbsp;milliseconds
+<br>With&nbsp;GC&nbsp;took&nbsp;2568&nbsp;milliseconds
+<br>
+<br>-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7703&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;1305&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;6397&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7703&nbsp;MB
+<br>
+<br>
+<br>
+<br>java&nbsp;-Xms8g&nbsp;-Xmx8g&nbsp;example.tmr.utils.UtilsExamples&nbsp;3
+<br>-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;81&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;7769&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>
+<br>-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;1088&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;6762&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>
+<br>Roughly&nbsp;were&nbsp;985&nbsp;megabytes&nbsp;are&nbsp;used
+<br>
+<br>-JVM&nbsp;Status-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;Memory:&nbsp;7851&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;Memory:&nbsp;39&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free&nbsp;Memory:&nbsp;7811&nbsp;MB
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;Memory:&nbsp;7851&nbsp;MB
