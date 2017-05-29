@@ -99,7 +99,7 @@ public final class GcUtils {
 				return Status.IS_ALREADY_RUNNING;
 			}
 			
-			System.gc();
+			Runtime.getRuntime().gc();
 			
 			GcUtils.thread = new Thread(() -> {
 				synchronized (GcUtils.gcLock) {
@@ -141,7 +141,7 @@ public final class GcUtils {
 			
 			return Status.STOPPED;
 		} finally {
-			System.gc();
+			Runtime.getRuntime().gc();
 			
 			GcUtils.enableDisableGcLock.unlock();
 		}
