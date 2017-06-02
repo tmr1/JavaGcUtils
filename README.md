@@ -1,4 +1,4 @@
-# Java Garbage Collection Preventer
+# Java Garbage Collection Disabler (Preventer)
  <b>TL;DR:</b> Using this code can easily cause the JVM to stop running! Don't use this unless you really know what you are doing!
  <br><br>This class contains methods that are experimental and will often in many cases cause the JVM to freeze and or crash and or cause other unexpected things. 
  <br><br>This is Java code that will disable (or at least prevent) the Garbage Collector in Java from running! It does so by locking an object that the GC needs to be able to perform the GC.
